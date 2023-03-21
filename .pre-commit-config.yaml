@@ -1,0 +1,31 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-json
+        exclude: .eslintrc.json
+    -   id: check-yaml
+    -   id: check-added-large-files
+-   repo: https://gitlab.com/bmares/check-json5
+    rev: v1.0.0
+    hooks:
+    -   id: check-json5
+-   repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v8.36.0
+    hooks:
+    -   id: eslint
+        additional_dependencies: ['eslint-config-standard@latest', 'eslint@^8.0.1', 'eslint-plugin-import@^2.25.2', 'eslint-plugin-n@^15.0.0', 'eslint-plugin-promise@^6.0.0']
+-   repo: local
+    hooks:
+    -   id: pre-commit-autoupdate
+        name: Autoupdate pre-commit configured repositories
+        stages: [manual]
+        language: system
+        entry: pre-commit
+        args: [autoupdate]
+        pass_filenames: false
+        always_run: true
+        files: ''
+        verbose: true

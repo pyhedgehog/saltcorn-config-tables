@@ -1,0 +1,26 @@
+{
+  "name": "saltcorn-config-tables",
+  "version": "1.0.0",
+  "description": "Collection of external tables re-formatted from configuration.",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "test": "echo No tests defined.;false"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.rutube.ru:mdubner/saltcorn-config-tables.git"
+  },
+  "keywords": [
+    "saltcorn"
+  ],
+  "author": "Michael P. Dubner",
+  "license": "MIT",
+  "dependencies": {
+    "@saltcorn/admin-models": "0.8.0",
+    "@saltcorn/data": "0.8.0",
+    "@saltcorn/db-common": "0.8.0"
+  }
+}

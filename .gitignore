@@ -1,0 +1,5 @@
+*.tmp
+*.part
+.env
+investigate/
+node_modules/
