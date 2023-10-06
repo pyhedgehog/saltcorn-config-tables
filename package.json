@@ -1,6 +1,6 @@
 {
   "name": "saltcorn-config-tables",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Collection of external tables re-formatted from configuration.",
   "main": "index.js",
   "exports": {
