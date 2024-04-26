@@ -1,6 +1,6 @@
 {
   "name": "saltcorn-config-tables",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Saltcorn plugin: Collection of external tables re-formatted from configuration",
   "main": "index.js",
   "exports": {
@@ -18,9 +18,42 @@
   ],
   "author": "Michael P. Dubner",
   "license": "MIT",
-  "dependencies": {
-    "@saltcorn/admin-models": "0.8.0",
-    "@saltcorn/data": "0.8.0",
-    "@saltcorn/db-common": "0.8.0"
+  "dependencies": {},
+  "devDependencies": {
+    "@saltcorn/admin-models": "0.9.5",
+    "@saltcorn/data": "0.9.5",
+    "@saltcorn/db-common": "0.9.5"
+  },
+  "eslintConfig": {
+    "env": {
+      "commonjs": true,
+      "es2021": true
+    },
+    "extends": [
+      "plugin:n/recommended",
+      "prettier"
+    ],
+    "overrides": [],
+    "parserOptions": {
+      "ecmaVersion": 9
+    },
+    "rules": {
+      "n/no-unpublished-require": [
+        "error",
+        {
+          "allowModules": [
+            "@saltcorn/data"
+          ]
+        }
+      ],
+      "n/no-missing-require": [
+        "error",
+        {
+          "allowModules": [
+            "@saltcorn/data"
+          ]
+        }
+      ]
+    }
   }
 }

@@ -5,5 +5,6 @@ module.exports = {
     ...require("./tenants.js"),
     ...require("./languages.js"),
     ...require("./plugins.js"),
+    ...require("./users.js"),
   },
 };

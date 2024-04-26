@@ -7,10 +7,28 @@ const { alterExternalTable } = require("./utils.js");
 const sccfg_plugins = alterExternalTable(
   json_list_to_external_table(
     async ({ where }) => {
-      return await db.select("_sc_plugins", where);
+      const available_plugin_ids = Object.fromEntries(
+        getState()
+          .getConfig("available_plugins", [])
+          .map((r) => [[r.source, r.location].join("/"), r.id]),
+      );
+      return (await db.select("_sc_plugins", where)).map(function (row) {
+        row.store_id =
+          available_plugin_ids[[row.source, row.location].join("/")] || null;
+        return row;
+      });
     },
     [
       { name: "id", label: "ID", type: "Integer", primary_key: true },
+      {
+        name: "store_id",
+        label: "Store ID",
+        type: "Key",
+        reftable_name: "sccfg_plugins_store",
+        attributes: { on_delete: "Set null" },
+        refname: "id",
+        reftype: "Integer",
+      },
       { name: "name", type: "String", unique: true },
       {
         name: "source",
@@ -48,7 +66,10 @@ const sccfg_plugins_store = alterExternalTable(
       { name: "documentation_link", type: "String" },
     ],
   ),
-  { min_role_read: 1 },
+  {
+    min_role_read: 1,
+    child_relations: [{ table: "sccfg_plugins", field: "store_id" }],
+  },
 );
 
 exports = module.exports = {

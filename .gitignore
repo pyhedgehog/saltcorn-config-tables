@@ -1,5 +1,6 @@
 *.tmp
 *.part
+*.tgz
 .env
 investigate/
 node_modules/

@@ -50,9 +50,9 @@ const sccfg_translations = json_list_to_external_table(
     return result;
   },
   [
-    { name: "source_lang", type: "String" },
-    { name: "target_lang", type: "String" },
-    { name: "message", type: "String" },
+    { name: "source_lang", type: "String", required: true },
+    { name: "target_lang", type: "String", required: true },
+    { name: "message", type: "String", required: true },
     { name: "translation", type: "String" },
   ],
 );
@@ -85,9 +85,9 @@ const sccfg_untranslated = json_list_to_external_table(
     return result;
   },
   [
-    { name: "source_lang", type: "String" },
-    { name: "target_lang", type: "String" },
-    { name: "message", type: "String" },
+    { name: "source_lang", type: "String", required: true },
+    { name: "target_lang", type: "String", required: true },
+    { name: "message", type: "String", required: true },
   ],
 );
 
